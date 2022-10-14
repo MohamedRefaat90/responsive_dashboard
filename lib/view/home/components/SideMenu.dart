@@ -20,37 +20,45 @@ class sideMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            DrawerHeader(child: Image.asset('assets/images/logo.png')),
-            ListView.builder(
-                itemCount: sideMenuData.length,
-                shrinkWrap: true,
-                itemBuilder: (context, index) => ListTile(
-                    hoverColor: Colors.red,
-                    leading: SvgPicture.asset(
-                      sideMenuData[index]['img'],
-                      color: Colors.white,
-                    ),
-                    title: Text(
-                      sideMenuData[index]['title'],
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: ResponsiveValue(context,
-                              defaultValue: 11.0,
-                              valueWhen: const [
-                                Condition.smallerThan(
-                                    name: MOBILE, value: 20.0),
-                              ]).value),
-                    ),
-                    onTap: () {},
-                    horizontalTitleGap: 0,
-                    minLeadingWidth:30
-                    ))
-          ],
-        ),
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          DrawerHeader(child: Image.asset('assets/images/logo.png')),
+          ListView.builder(
+              itemCount: sideMenuData.length,
+              shrinkWrap: true,
+              itemBuilder: (context, index) => ListTile(
+                  hoverColor: Colors.red,
+                  leading: SvgPicture.asset(
+                    sideMenuData[index]['img'],
+                    color: Colors.white,
+                    width: ResponsiveValue(context,
+                        defaultValue: 12.0,
+                        valueWhen: [
+                          const Condition.smallerThan(
+                              name: TABLET, value: 18.0),
+                          const Condition.largerThan(name: TABLET, value: 17.0),
+                        ]).value,
+                  ),
+                  title: Text(
+                    sideMenuData[index]['title'],
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: ResponsiveValue(context,
+                            defaultValue: 11.0,
+                            valueWhen: const [
+                              Condition.smallerThan(name: TABLET, value: 16.0),
+                              Condition.largerThan(name: TABLET, value: 16.0),
+                            ]).value),
+                  ),
+                  onTap: () {},
+                  horizontalTitleGap:
+                      ResponsiveValue(context, defaultValue: 0.0, valueWhen: [
+                    const Condition.equals(name: MOBILE, value: 10.0),
+                    const Condition.largerThan(name: TABLET, value: 5.0),
+                  ]).value,
+                  minLeadingWidth: 30))
+        ],
       ),
     );
   }

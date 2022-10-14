@@ -24,14 +24,15 @@ class MyApp extends StatelessWidget {
           textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme)
               .apply(bodyColor: Colors.white, displayColor: Colors.white),
           canvasColor: secondaryColor),
-      builder: (context, child) => ResponsiveWrapper.builder(
+      home: ResponsiveWrapper.builder(
           ClampingScrollWrapper.builder(context, HomeScreen()),
           breakpoints: [
             const ResponsiveBreakpoint.resize(480, name: MOBILE),
             const ResponsiveBreakpoint.autoScale(800, name: TABLET),
             const ResponsiveBreakpoint.resize(1000, name: DESKTOP),
           ],
-          background: Container(color: Color.fromARGB(255, 167, 0, 0))),
+          background: Container(color: Colors.cyan)),
+
       // home: HomeScreen(),
     );
   }

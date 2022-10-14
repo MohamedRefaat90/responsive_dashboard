@@ -15,7 +15,7 @@ class HomeScreen extends StatelessWidget {
           visibleWhen: const [Condition.smallerThan(name: TABLET)],
           child: Drawer(child: sideMenu())),
       body: SafeArea(
-          child: ResponsiveWrapper(  
+          child: ResponsiveWrapper(
         breakpoints: const [
           ResponsiveBreakpoint.resize(480, name: MOBILE),
           ResponsiveBreakpoint.autoScale(800, name: TABLET),
@@ -26,7 +26,7 @@ class HomeScreen extends StatelessWidget {
           children: [
             ResponsiveVisibility(
                 hiddenWhen: const [Condition.smallerThan(name: TABLET)],
-                child: sideMenu()),
+                child: Expanded(child: sideMenu())),
             const DashboardScreen()
           ],
         ),
