@@ -16,27 +16,23 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      title: 'Flutter Demo',
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialBinding: myBindings(),
+      // initialBinding: myBindings(),
       theme: ThemeData.dark().copyWith(
           scaffoldBackgroundColor: bgColor,
           textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme)
-              .apply(bodyColor: Colors.white),
+              .apply(bodyColor: Colors.white, displayColor: Colors.white),
           canvasColor: secondaryColor),
-      builder: (context, child) => ResponsiveWrapper.builder(child,
-          maxWidth: double.infinity,
-          minWidth: 480,
-          defaultScale: true,
-          backgroundColor: Colors.white,
+      builder: (context, child) => ResponsiveWrapper.builder(
+          ClampingScrollWrapper.builder(context, HomeScreen()),
           breakpoints: [
             const ResponsiveBreakpoint.resize(480, name: MOBILE),
             const ResponsiveBreakpoint.autoScale(800, name: TABLET),
             const ResponsiveBreakpoint.resize(1000, name: DESKTOP),
           ],
           background: Container(color: Color.fromARGB(255, 167, 0, 0))),
-      home: HomeScreen(),
+      // home: HomeScreen(),
     );
   }
 }
