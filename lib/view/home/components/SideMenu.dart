@@ -47,8 +47,9 @@ class sideMenu extends StatelessWidget {
                         fontSize: ResponsiveValue(context,
                             defaultValue: 11.0,
                             valueWhen: const [
-                              Condition.smallerThan(name: TABLET, value: 16.0),
-                              Condition.largerThan(name: TABLET, value: 16.0),
+                              Condition.smallerThan(name: TABLET, value: 20.0),
+                              Condition.equals(name: TABLET, value: 19.0),
+                              Condition.largerThan(name: TABLET, value:16.0),
                             ]).value),
                   ),
                   onTap: () {},
