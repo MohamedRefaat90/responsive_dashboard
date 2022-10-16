@@ -1,7 +1,12 @@
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../constants.dart';
 import 'components/Header.dart';
+import 'components/Storage_item_Card.dart';
+import 'components/StroageDetalis.dart';
+import 'components/chart.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({Key? key}) : super(key: key);
@@ -15,16 +20,18 @@ class DashboardScreen extends StatelessWidget {
         child: Column(
           children: [
             const Header(),
+            const SizedBox(height: kPadding),
             Row(
               children: [
                 Expanded(
-                  flex: 4,
-                  child: Container(color: Colors.red,),
+                  flex: 3,
+                  child: Container(
+                    height: 500,
+                    color: Colors.red,
+                  ),
                 ),
-                Expanded(
-                  flex: 1,
-                  child: Container(color: Colors.blue,),
-                ),
+                const SizedBox(width: kPadding),
+                const StorageDetalis(),
               ],
             )
           ],

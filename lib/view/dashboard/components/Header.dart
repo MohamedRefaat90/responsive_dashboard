@@ -19,7 +19,7 @@ class Header extends StatelessWidget {
                 fontSize: ResponsiveValue(context,
                     defaultValue: 25.0,
                     valueWhen: const [Condition.equals(name: MOBILE, value: 20.0)]).value)),
-        const Spacer(),
+        const Spacer(flex: 2),
         const SearchBox(),
         const ProfileCard()
       ],

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+
 import 'package:google_fonts/google_fonts.dart';
-import 'package:responsive_dashboard/controller/Bindings.dart';
+
 import 'package:responsive_framework/responsive_framework.dart';
 
 import 'constants.dart';
